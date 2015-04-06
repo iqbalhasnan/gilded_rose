@@ -3,6 +3,15 @@ module Updater
     def initialize(item)
       @item = item
     end
+
+
+    def minimum_quantity(value)
+      @@minimum_quantity = value
+    end
+
+    def maximum_quantity(value)
+      @@maximum_quantity = value
+    end
   end
 end
 
