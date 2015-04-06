@@ -7,6 +7,8 @@ module Updater
     def update
     end
 
+    private
+
     def self.minimum_quality(value)
       @@minimum_quality = value
     end
