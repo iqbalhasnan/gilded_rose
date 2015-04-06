@@ -50,6 +50,12 @@ module Updater
 
   class Conjured < BaseItem
     maximum_quality 50
+
+    def update
+      @item.sell_in -=1
+      add_quality
+      add_quality
+    end
   end
 end
 
