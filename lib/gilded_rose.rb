@@ -5,12 +5,12 @@ module Updater
     end
 
 
-    def minimum_quantity(value)
-      @@minimum_quantity = value
+    def minimum_quality(value)
+      @@minimum_quality = value
     end
 
-    def maximum_quantity(value)
-      @@maximum_quantity = value
+    def maximum_quality(value)
+      @@maximum_quality = value
     end
   end
 end
