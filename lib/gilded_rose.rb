@@ -25,15 +25,19 @@ module Updater
   end
 
   class AgedBrie < BaseItem
+    maximum_quality 50
   end
 
   class Sulfuras < BaseItem
+    maximum_quality 80
   end
 
   class BackstagePass < BaseItem
+    maximum_quality 50
   end
 
   class Conjured < BaseItem
+    maximum_quality 50
   end
 end
 
