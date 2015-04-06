@@ -19,6 +19,9 @@ module Updater
 
     def increase_quality
       @item.quality += 1
+      if @@maximum_quality
+        @item.quality = [@@maximum_quality, @item.quality].min
+      end
     end
 
     def decrease_quality
