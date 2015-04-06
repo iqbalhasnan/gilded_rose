@@ -4,6 +4,8 @@ module Updater
       @item = item
     end
 
+    def update
+    end
 
     def minimum_quality(value)
       @@minimum_quality = value
