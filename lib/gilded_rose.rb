@@ -26,6 +26,12 @@ module Updater
 
   class AgedBrie < BaseItem
     maximum_quality 50
+
+    def update
+      @item.sell_in -=1
+      add_quality
+      add_quality if @item.sell_in < 0
+    end
   end
 
   class Sulfuras < BaseItem
@@ -34,6 +40,12 @@ module Updater
 
   class BackstagePass < BaseItem
     maximum_quality 50
+
+    def update
+      @item.sell_in -=1
+      remove_quality
+      remove_quality if @item.sell_in < 0
+    end
   end
 
   class Conjured < BaseItem
