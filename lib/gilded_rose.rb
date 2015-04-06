@@ -71,52 +71,22 @@ end
 
 def update_quality(items)
   items.each do |item|
-    if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
-      if item.quality > 0
-        if item.name != 'Sulfuras, Hand of Ragnaros'
-          item.quality -= 1
-        end
-      end
-    else
-      if item.quality < 50
-        item.quality += 1
-        if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-          if item.sell_in < 11
-            if item.quality < 50
-              item.quality += 1
-            end
-          end
-          if item.sell_in < 6
-            if item.quality < 50
-              item.quality += 1
-            end
-          end
-        end
-      end
-    end
-    if item.name != 'Sulfuras, Hand of Ragnaros'
-      item.sell_in -= 1
-    end
-    if item.sell_in < 0
-      if item.name != "Aged Brie"
-        if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-          if item.quality > 0
-            if item.name != 'Sulfuras, Hand of Ragnaros'
-              item.quality -= 1
-            end
-          end
-        else
-          item.quality = item.quality - item.quality
-        end
-      else
-        if item.quality < 50
-          item.quality += 1
-        end
-      end
-    end
+    ItemUpdater.for(item).update
   end
 end
 
+class ItemUpdater
+  ITEM_MAPPER = {
+    "Aged Brie" => Updater::AgedBrie,
+    "Sulfuras, Hand of Ragnaros" => Updater::Sulfuras,
+    "Backstage passes to a TAFKAL80ETC concert" => Updater::BackstagePass,
+    "Conjured" => Updater::Conjured
+  }
+
+  def self.for(item)
+    ITEM_MAPPER[item.name].new(item)
+  end
+end
 ######### DO NOT CHANGE BELOW #########
 
 Item = Struct.new(:name, :sell_in, :quality)
