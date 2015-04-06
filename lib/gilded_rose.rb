@@ -23,6 +23,18 @@ module Updater
       @item.quality -=1
     end
   end
+
+  class AgedBrie < BaseItem
+  end
+
+  class Sulfuras < BaseItem
+  end
+
+  class BackstagePass < BaseItem
+  end
+
+  class Conjured < BaseItem
+  end
 end
 
 def update_quality(items)
