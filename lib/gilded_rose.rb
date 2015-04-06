@@ -51,8 +51,10 @@ module Updater
 
     def update
       @item.sell_in -=1
-      decrease_quality
-      decrease_quality if @item.sell_in < 0
+      increase_quality
+      increase_quality if @item.sell_in < 5
+      increase_quality if @item.sell_in < 10
+      @item.quality = 0 if @item.sell_in < 0
     end
   end
 
