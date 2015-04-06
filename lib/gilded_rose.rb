@@ -7,11 +7,11 @@ module Updater
     def update
     end
 
-    def minimum_quality(value)
+    def self.minimum_quality(value)
       @@minimum_quality = value
     end
 
-    def maximum_quality(value)
+    def self.maximum_quality(value)
       @@maximum_quality = value
     end
 
