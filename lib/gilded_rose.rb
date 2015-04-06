@@ -12,6 +12,14 @@ module Updater
     def maximum_quality(value)
       @@maximum_quality = value
     end
+
+    def add_quality
+      @item.quality += 1
+    end
+
+    def remove_quality
+      @item.quality -=1
+    end
   end
 end
 
