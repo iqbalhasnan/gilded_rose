@@ -1,3 +1,11 @@
+module Updater
+  class BaseItem
+    def initialize(item)
+      @item = item
+    end
+  end
+end
+
 def update_quality(items)
   items.each do |item|
     if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
