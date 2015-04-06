@@ -15,11 +15,11 @@ module Updater
       @@maximum_quality = value
     end
 
-    def add_quality
+    def increase_quality
       @item.quality += 1
     end
 
-    def remove_quality
+    def decrease_quality
       @item.quality -=1
     end
   end
@@ -29,8 +29,8 @@ module Updater
 
     def update
       @item.sell_in -=1
-      add_quality
-      add_quality if @item.sell_in < 0
+      increase_quality
+      increase_quality if @item.sell_in < 0
     end
   end
 
@@ -43,8 +43,8 @@ module Updater
 
     def update
       @item.sell_in -=1
-      remove_quality
-      remove_quality if @item.sell_in < 0
+      decrease_quality
+      decrease_quality if @item.sell_in < 0
     end
   end
 
@@ -53,8 +53,8 @@ module Updater
 
     def update
       @item.sell_in -=1
-      add_quality
-      add_quality
+      increase_quality
+      increase_quality
     end
   end
 end
